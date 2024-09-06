@@ -8,7 +8,7 @@ import {Instagram} from "@/components/social/Instagram";
 
 export const Footer = () => {
 	return (
-		<footer className="bg-primary p-6 text-white text-center fixed bottom-0 w-full">
+		<footer className="bg-primary p-6 text-white text-center fixed bottom-0 w-full z-10">
 			<div className="flex justify-center space-x-4">
 				<Discord/>
 				<Twitter/>
