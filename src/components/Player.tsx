@@ -23,6 +23,7 @@ import {IRadioStation} from "@/interface/IRadioStation";
 
 
 export const Player = () => {
+    //#region Constants
     const {toast} = useToast()
 
     const stepPercentage: number = config.stepPercentage
@@ -33,6 +34,7 @@ export const Player = () => {
     const [isPlaying, setIsPlaying] = useState<boolean>(false)
     const [isMuted, setisMuted] = useState<boolean>(false);
     const [volume, setVolume] = useState(standartVolume)
+    //#endregion
 
     const PLAY_ICON: JSX.Element = <PlayIcon className={"mr-2"}/>
     const PAUSE_ICON: JSX.Element = <PauseIcon className={"mr-2"}/>
@@ -41,12 +43,14 @@ export const Player = () => {
 
     const audioRef: RefObject<HTMLAudioElement> = useRef<HTMLAudioElement>(null);
 
+    // Alle Funktionen werden hier automatisch beim aufrufen der seite geladen.
     useEffect(() => {
         const {current: audioElement} = audioRef;
         loadLocalStorage()
         setRadioStations(streams)
         {/*setStreamOnLoad()
-        setVolumeOnLoad()*/}
+        setVolumeOnLoad()*/
+        }
 
         if (audioElement) {
             audioElement.volume = volume;
@@ -58,6 +62,7 @@ export const Player = () => {
         }
     }, [isPlaying, volume])
 
+    // Diese Funktion ist dazu da alle benötigten Grundwerte in die Localstorage zu schreiben.
     const loadLocalStorage = () => {
         if (!localStorage.getItem("prevVol")) {
             localStorage.setItem("prevVol", config.previousVolume.toFixed(1))
@@ -77,6 +82,7 @@ export const Player = () => {
         }
     }
 
+    //Diese Funktion Berechnet die Prozent Steps im Slider
     const calculateStep = () => {
         return 1 / (100 * stepPercentage)
     }
@@ -111,7 +117,7 @@ export const Player = () => {
         setisMuted(!isMuted)
     }
 
-
+    //Diese Funktion Handelt den Radio Station Wechsel
     const handleRadioChange = (newRadio: string) => {
         const radio = radioStations.find(x => x.name == newRadio);
         if (!radio) return
@@ -130,7 +136,6 @@ export const Player = () => {
         }
         setIsPlaying(!isPlaying)
     }
-
 
     return (
         <div className={"w-screen min-h-screen flex justify-center items-center flex-col"}>
