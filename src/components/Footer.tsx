@@ -1,3 +1,9 @@
+/**
+ * @author .jannik
+ * @file Footer.tsx
+ * @link https://github.com/30jannik06
+ * @link https://discordapp.com/users/268084996235853824
+ */
 import React from "react";
 import {Discord} from "@/components/social/Discord";
 import {Label} from "@/components/ui/label";

@@ -1,0 +1,344 @@
+[
+	{
+		"id": 1,
+		"name": "1 Live",
+		"streamURL": "https://d111.rndfnk.com/ard/wdr/1live/live/mp3/128/stream.mp3?cid=01FBRZTS1K1TCD4KA2YZ1ND8X3&sid=2ZTweB44h0LLrG0UHCTQmEHS9ep&token=wx0-d1nCps5NkG1_WJs-5ZN5P7pBLEdy76FaIPeynig&tvf=5qtNTINtoBdkMTExLnJuZGZuay5jb20",
+		"group": "1 Live"
+	},
+	{
+		"id": 2,
+		"name": "1 Live Diggi",
+		"streamURL": "https://d121.rndfnk.com/ard/wdr/1live/diggi/mp3/128/stream.mp3?cid=01FBS02KK2TSYGZSY19X8ZJ3RK&sid=2ZTwaBkwRkhWBzdEQfLj1VtQ3UP&token=w5XP7b1ywEZx4R_OQkpi0WNF7HY8td_UPgQKZbnDeSI&tvf=zeqo2XttoBdkMTIxLnJuZGZuay5jb20",
+		"group": "1 Live"
+	},
+	{
+		"id": 3,
+		"name": "ILoveRadio",
+		"streamURL": "http://stream01.iloveradio.de/iloveradio1.mp3",
+		"group": "ILoveRadio"
+	},
+	{
+		"id": 4,
+		"name": "ILoveRadio Dance",
+		"streamURL": "http://stream01.iloveradio.de/iloveradio2.mp3",
+		"group": "ILoveRadio"
+	},
+	{
+		"id": 5,
+		"name": "ILoveRadio HipHop",
+		"streamURL": "http://stream01.iloveradio.de/iloveradio3.mp3",
+		"group": "ILoveRadio"
+	},
+	{
+		"id": 6,
+		"name": "ILoveRadio Top 100 Charts",
+		"streamURL": "http://stream01.iloveradio.de/iloveradio9.mp3",
+		"group": "ILoveRadio"
+	},
+	{
+		"id": 7,
+		"name": "ILoveRadio Mashup",
+		"streamURL": "http://stream01.iloveradio.de/iloveradio5.mp3",
+		"group": "ILoveRadio"
+	},
+	{
+		"id": 8,
+		"name": "ILoveRadio The Beach",
+		"streamURL": "http://stream01.iloveradio.de/iloveradio7.mp3",
+		"group": "ILoveRadio"
+	},
+	{
+		"id": 9,
+		"name": "ILoveRadio Party",
+		"streamURL": "http://stream01.iloveradio.de/iloveradio14.mp3",
+		"group": "ILoveRadio"
+	},
+	{
+		"id": 10,
+		"name": "ILoveRadio Rock",
+		"streamURL": "http://stream01.iloveradio.de/iloveradio4.mp3",
+		"group": "ILoveRadio"
+	},
+	{
+		"id": 11,
+		"name": "ILoveRadio Bass by HBz",
+		"streamURL": "https://streams.ilovemusic.de/iloveradio29.mp3",
+		"group": "ILoveRadio"
+	},
+	{
+		"id": 12,
+		"name": "Radio Paloma",
+		"streamURL": "http://icepool.silvacast.com/RADIOPALOMA.mp3",
+		"group": "Others"
+	},
+	{
+		"id": 13,
+		"name": "Radio Bob",
+		"streamURL": "http://streams.radiobob.de/bob-live/mp3-192/mediaplayer",
+		"group": "Radio Bob"
+	},
+	{
+		"id": 14,
+		"name": "Radio Bob Classic",
+		"streamURL": "http://streams.radiobob.de/bob-classicrock/mp3-128/mediaplayer",
+		"group": "Radio Bob"
+	},
+	{
+		"id": 15,
+		"name": "Radio Bob Deutschrock",
+		"streamURL": "http://streams.radiobob.de/bob-deutsch/mp3-192/mediaplayer",
+		"group": "Radio Bob"
+	},
+	{
+		"id": 16,
+		"name": "Rock Antenne Deutschrock",
+		"streamURL": "http://mp3channels.webradio.rockantenne.de/deutschrock",
+		"group": "Radio Antenne"
+	},
+	{
+		"id": 17,
+		"name": "Rock Antenne Classic",
+		"streamURL": "http://mp3channels.webradio.rockantenne.de/classic-perlen",
+		"group": "Radio Antenne"
+	},
+	{
+		"id": 18,
+		"name": "Radio Bollerwagen",
+		"streamURL": "http://player.ffn.de/radiobollerwagen.mp3",
+		"group": "Others"
+	},
+	{
+		"id": 19,
+		"name": "BigFM",
+		"streamURL": "http://streams.bigfm.de/bigfm-hotmusicradio-128-mp3",
+		"group": "Others"
+	},
+	{
+		"id": 20,
+		"name": "WDR 2",
+		"streamURL": "https://wdr-wdr2-ostwestfalenlippe.icecastssl.wdr.de/wdr/wdr2/ostwestfalenlippe/mp3/128/stream.mp3",
+		"group": "Others"
+	},
+	{
+		"id": 21,
+		"name": "RauteMusik Club",
+		"streamURL": "http://club-high.rautemusik.fm",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 22,
+		"name": "RauteMusik House",
+		"streamURL": "http://house-high.rautemusik.fm",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 23,
+		"name": "RauteMusik Trap",
+		"streamURL": "http://trap-high.rautemusik.fm",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 24,
+		"name": "RauteMusik Country",
+		"streamURL": "http://country-high.rautemusik.fm",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 25,
+		"name": "RauteMusik BigCityBeats",
+		"streamURL": "http://bcb-high.rautemusik.fm",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 26,
+		"name": "RauteMusik Charthits",
+		"streamURL": "http://charthits-high.rautemusik.fm",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 27,
+		"name": "RauteMusik Christmas",
+		"streamURL": "http://weihnachten-high.rautemusik.fm/listen.mp3",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 28,
+		"name": "RauteMusik Deutschrap Charts",
+		"streamURL": "https://deutschrap-charts-high.rautemusik.fm/listen.mp3",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 29,
+		"name": "RauteMusik Goldies",
+		"streamURL": "http://goldies-high.rautemusik.fm/listen.mp3",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 30,
+		"name": "RauteMusik 90er",
+		"streamURL": "http://90s-high.rautemusik.fm",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 31,
+		"name": "RauteMusik Party",
+		"streamURL": "http://partyhits-high.rautemusik.fm/listen.mp3",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 32,
+		"name": "RauteMusik Workout",
+		"streamURL": "http://workout-high.rautemusik.fm/listen.mp3",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 33,
+		"name": "RauteMusik Schlager",
+		"streamURL": "http://schlager-high.rautemusik.fm/listen.mp3",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 34,
+		"name": "RauteMusik Rock",
+		"streamURL": "http://rock-high.rautemusik.fm/listen.mp3",
+		"group": "RauteMusik"
+	},
+	{
+		"id": 35,
+		"name": "FFH Soundtrack",
+		"streamURL": "https://mp3.ffh.de/ffhchannels/hqsoundtrack.mp3",
+		"group": "FFH"
+	},
+	{
+		"id": 36,
+		"name": "FFH Die 90er",
+		"streamURL": "https://mp3.ffh.de/ffhchannels/hq90er.mp3",
+		"group": "FFH"
+	},
+	{
+		"id": 37,
+		"name": "FFH Party",
+		"streamURL": "https://mp3.ffh.de/ffhchannels/hqparty.mp3",
+		"group": "FFH"
+	},
+	{
+		"id": 38,
+		"name": "FFH Rock",
+		"streamURL": "https://mp3.ffh.de/ffhchannels/hqrock.mp3",
+		"group": "FFH"
+	},
+	{
+		"id": 39,
+		"name": "Radio Bob Festival",
+		"streamURL": "http://streams.radiobob.de/bob-festival/mp3-192/mediaplayer",
+		"group": "Radio Bob"
+	},
+	{
+		"id": 40,
+		"name": "Radio Bob Best of",
+		"streamURL": "http://streams.radiobob.de/bob-bestofrock/mp3-192/mediaplayer",
+		"group": "Radio Bob"
+	},
+	{
+		"id": 41,
+		"name": "Radio Bob 80er",
+		"streamURL": "http://streams.radiobob.de/bob-80srock/mp3-192/mediaplayer",
+		"group": "Radio Bob"
+	},
+	{
+		"id": 42,
+		"name": "Radio Bob 90er",
+		"streamURL": "http://streams.radiobob.de/bob-90srock/mp3-192/mediaplayer",
+		"group": "Radio Bob"
+	},
+	{
+		"id": 43,
+		"name": "RAYFM Dance",
+		"streamURL": "https://listen.reyfm.de/reyfm-dance/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 44,
+		"name": "RAYFM Gaming",
+		"streamURL": "https://listen.reyfm.de/reyfm-gaming/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 45,
+		"name": "RAYFM Hits",
+		"streamURL": "https://listen.reyfm.de/reyfm-hits/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 46,
+		"name": "RAYFM Original",
+		"streamURL": "https://listen.reyfm.de/reyfm-original/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 47,
+		"name": "RAYFM Charts",
+		"streamURL": "https://listen.reyfm.de/reyfm-charts/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 48,
+		"name": "RAYFM Deutschrap",
+		"streamURL": "https://listen.reyfm.de/reyfm-deutschrap/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 49,
+		"name": "RAYFM HipHop",
+		"streamURL": "https://listen.reyfm.de/reyfm-hip-hop/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 50,
+		"name": "RAYFM Hits2k",
+		"streamURL": "https://listen.reyfm.de/reyfm-hits2k/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 51,
+		"name": "RAYFM Piano House",
+		"streamURL": "https://listen.reyfm.de/reyfm-piano_house/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 52,
+		"name": "RAYFM Chill",
+		"streamURL": "https://listen.reyfm.de/reyfm-chill/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 53,
+		"name": "RAYFM Deutschrap Gold",
+		"streamURL": "https://listen.reyfm.de/reyfm-deutschrap_gold/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 54,
+		"name": "RAYFM HipHop Gold",
+		"streamURL": "https://listen.reyfm.de/reyfm-hip-hop_gold/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 55,
+		"name": "RAYFM LoFi",
+		"streamURL": "https://listen.reyfm.de/reyfm-lofi/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 56,
+		"name": "RAYFM Summer",
+		"streamURL": "https://listen.reyfm.de/reyfm-summer/",
+		"group": "RAYFM"
+	},
+	{
+		"id": 57,
+		"name": "SWR 3",
+		"streamURL": "https://liveradio.swr.de/sw331ch/swr3/",
+		"group": "Others"
+	}
+]
