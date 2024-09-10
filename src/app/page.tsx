@@ -8,11 +8,14 @@
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {Player} from "@/components/Player";
+import {Toaster} from "@/components/ui/toaster";
+import React from "react";
 
 export default function Home() {
 
     return (
         <main className={"w-screen h-screen bg-gray-100"}>
+            <Toaster/>
             <Header/>
             <Player/>
             <Footer/>
