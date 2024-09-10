@@ -9,16 +9,19 @@ import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {Player} from "@/components/Player";
 import {Toaster} from "@/components/ui/toaster";
-import React from "react";
+import React, {Suspense} from "react";
+import LoadingScreen from "@/app/loading";
 
 export default function Home() {
 
-    return (
-        <main className={"w-screen h-screen bg-gray-100"}>
-            <Toaster/>
-            <Header/>
-            <Player/>
-            <Footer/>
-        </main>
-    );
+	return (
+		<main className={"w-screen h-screen bg-gray-100"}>
+			<Suspense fallback={<LoadingScreen/>}>
+				<Toaster/>
+				<Header/>
+				<Player/>
+				<Footer/>
+			</Suspense>
+		</main>
+	);
 }

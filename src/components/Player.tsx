@@ -22,6 +22,7 @@ import {
 import {useToast} from "@/hooks/use-toast";
 import {IRadioGroup} from "@/interface/IRadioGroup";
 import {IRadioStation} from "@/interface/IRadioStation";
+import {Skeleton} from "@/components/ui/skeleton";
 
 export const Player = () => {
 	//#region Constants
@@ -34,6 +35,7 @@ export const Player = () => {
 	const [radioStations, setRadioStations] = useState<IRadioStation[]>([])
 	const [isPlaying, setIsPlaying] = useState<boolean>(false)
 	const [isMuted, setisMuted] = useState<boolean>(false);
+	const [loading, setLoading] = useState<boolean>(true)
 	const [volume, setVolume] = useState(standartVolume)
 	//#endregion
 
@@ -49,8 +51,9 @@ export const Player = () => {
 	// Alle Funktionen werden hier automatisch beim aufrufen der seite geladen.
 	useEffect(() => {
 		const {current: audioElement} = audioRef;
+
+		loadRadiostations()
 		loadLocalStorage()
-		setRadioStations(streams)
 		setVolumeOnLoad()
 
 		if (audioElement) {
@@ -62,6 +65,16 @@ export const Player = () => {
 			}
 		}
 	}, [isPlaying, volume])
+
+	const loadRadiostations = () => {
+		try {
+			setRadioStations(streams)
+		} catch (e) {
+			console.error(e)
+		} finally {
+			setLoading(false)
+		}
+	}
 
 	// Diese Funktion ist dazu da alle benötigten Grundwerte in die Localstorage zu schreiben.
 	const loadLocalStorage = () => {
@@ -160,23 +173,26 @@ export const Player = () => {
 
 			<a className={"text-black m-2"}>Aktuelle Lautstärke: {Math.round(setVolumeOnLoad() * 100)}%</a>
 
-			<Select onValueChange={(selectedStation) => handleRadioChange(selectedStation)}>
-				<SelectTrigger className={"w-[20%] m-2"}>
-					<SelectValue placeholder={"Wähle ein Radio"} className={"text-black"}/>
-				</SelectTrigger>
-				<SelectContent className={"text-black m-2"}>
-					{Object.keys(groupRadioStations(radioStations)).map(groupName => (
-						<SelectGroup key={groupName}>
-							<SelectLabel>{groupName}</SelectLabel>
-							{groupRadioStations(radioStations)[groupName].map(station => (
-								<SelectItem key={station.id} value={station.name} className={"text-black m-2"}>
-									{station.name}
-								</SelectItem>
-							))}
-						</SelectGroup>
-					))}
-				</SelectContent>
-			</Select>
+			{loading ?
+				(<Skeleton className="w-[20%] h-[40px] rounded-md bg-gray-700"/>) :
+				(<Select onValueChange={(selectedStation) => handleRadioChange(selectedStation)}>
+					<SelectTrigger className={"w-[20%] m-2"}>
+						<SelectValue placeholder={"Wähle ein Radio"} className={"text-black"}/>
+					</SelectTrigger>
+					<SelectContent className={"text-black m-2"}>
+						{Object.keys(groupRadioStations(radioStations)).map(groupName => (
+							<SelectGroup key={groupName}>
+								<SelectLabel>{groupName}</SelectLabel>
+								{groupRadioStations(radioStations)[groupName].map(station => (
+									<SelectItem key={station.id} value={station.name} className={"text-black m-2"}>
+										{station.name}
+									</SelectItem>
+								))}
+							</SelectGroup>
+						))}
+					</SelectContent>
+				</Select>)}
+
 
 			<div className={"w-[25%] h-[10vh] flex flex-row m-2"}>
 				<Button className={"h-[5vh] w-[50%] m-2 font-semibold"}
