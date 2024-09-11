@@ -72,7 +72,13 @@ export const Player = () => {
 		try {
 			setRadioStations(streams)
 		} catch (e) {
-			console.error(e)
+			console.error("Fehler beim Laden der Radiostationen:", e);
+			toast({
+				variant: "destructive",
+				title: "Lade Fehler",
+				description: "Die Radiostationen konnten nicht geladen werden."
+			})
+			router.push("/problem")
 		} finally {
 			setLoading(false)
 		}
