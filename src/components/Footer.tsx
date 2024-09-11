@@ -22,7 +22,7 @@ export const Footer = () => {
 				<Youtube/>
 				<Instagram/>
 			</div>
-			<Label className="mt-4">
+			<Label className="mt-4 select-none">
 				&copy; 2024 Dein Web Radio Player des Vertrauens. Alle Rechte vorbehalten.
 			</Label>
 		</footer>

@@ -4,8 +4,8 @@
  * @link https://github.com/30jannik06
  * @link https://discordapp.com/users/268084996235853824
  */
-import config from "../../config.json"
-import streams from "../../data.json"
+import config from "@/utils/config.json"
+import streams from "@/utils/data.json"
 import {Button} from "@/components/ui/button";
 import {Slider} from "@/components/ui/slider";
 import {PauseIcon, PlayIcon, Volume2Icon, VolumeOffIcon} from "lucide-react"
@@ -23,10 +23,13 @@ import {useToast} from "@/hooks/use-toast";
 import {IRadioGroup} from "@/interface/IRadioGroup";
 import {IRadioStation} from "@/interface/IRadioStation";
 import {Skeleton} from "@/components/ui/skeleton";
+import {useRouter} from "next/navigation";
 
 export const Player = () => {
 	//#region Constants
 	const {toast} = useToast()
+	const router = useRouter()
+
 
 	const stepPercentage: number = config.stepPercentage
 	const standartVolume: number = config.standardVolume
@@ -53,7 +56,6 @@ export const Player = () => {
 		const {current: audioElement} = audioRef;
 
 		loadRadiostations()
-		loadLocalStorage()
 		setVolumeOnLoad()
 
 		if (audioElement) {
@@ -76,26 +78,6 @@ export const Player = () => {
 		}
 	}
 
-	// Diese Funktion ist dazu da alle benötigten Grundwerte in die Localstorage zu schreiben.
-	const loadLocalStorage = () => {
-		if (typeof window !== "undefined") {
-			if (!localStorage.getItem("prevVol")) {
-				localStorage.setItem("prevVol", config.previousVolume.toFixed(1))
-				console.log("Previous Volume wurde in die Localstorage geschrieben!")
-			}
-			if (!localStorage.getItem("stepPerc")) {
-				localStorage.setItem("stepPerc", config.stepPercentage.toString())
-				console.log("Step Percentage wurde in die Localstorage geschrieben!")
-			}
-			if (!localStorage.getItem("standVol")) {
-				localStorage.setItem("standVol", config.standardVolume.toString())
-				console.log("Standart Volume wurde in die Localstorage geschrieben!")
-			}
-		} else {
-			console.log("Localstorage ist im aktuellen Kontext nicht verfügbar.")
-		}
-	}
-
 	//Diese Funktion Berechnet die Prozent Steps im Slider
 	const calculateStep = () => {
 		return 1 / (100 * stepPercentage)
@@ -109,7 +91,19 @@ export const Player = () => {
 
 	//Diese Funktion setzt beim Laden des Webradio die zuletzt in der Localstorage gesetzte Lautstärke.
 	const setVolumeOnLoad = () => {
+		const standVolString: string | null = localStorage.getItem("standVol")
+		const prevVolString = localStorage.getItem("prevVol");
+
 		if (typeof window !== "undefined") {
+			if (!standVolString) {
+				localStorage.setItem("standVol", config.standardVolume.toString())
+				console.log("Standart Volume wurde in die Localstorage geschrieben!")
+			}
+			if (!prevVolString) {
+				localStorage.setItem("prevVol", config.previousVolume.toString())
+				router.refresh()
+				console.log("Previous Volume wurde in die Localstorage geschrieben!")
+			}
 			const prevVolStr = localStorage.getItem("prevVol");
 			const prevVol = prevVolStr ? parseFloat(prevVolStr) : 0.0;
 			return prevVol
@@ -163,44 +157,61 @@ export const Player = () => {
 	}
 
 	return (
-		<div className={"w-screen min-h-screen flex justify-center items-center flex-col"}>
-			<audio ref={audioRef} title={"song title"} src={currentRadio?.streamURL}/>
+		<div className={"w-full min-h-screen flex justify-center items-center p-4"}>
+			<div
+				className={"flex flex-col w-full max-w-lg bg-gray-100 items-center justify-center p-4 rounded-lg shadow-md"}>
+				<audio ref={audioRef} title={"song title"} src={currentRadio?.streamURL}/>
 
-			<a className={"text-black m-2"}>{currentRadio ? currentRadio.name : "Kein aktiver sender"}</a>
+				<a className={"text-black m-2 select-none text-center"}>{currentRadio ? currentRadio.name : "Kein aktiver sender"}</a>
 
-			<Slider min={0} defaultValue={[setVolumeOnLoad()]} step={calculateStep()} max={1} className={"w-[20%] m-2"}
-					onValueChange={(value: number[]) => handleVolumeChange(value[0])}/>
+				<Slider
+					min={0}
+					defaultValue={[setVolumeOnLoad()]}
+					step={calculateStep()}
+					max={1}
+					className={"w-full max-w-xs m-2"}
+					onValueChange={(value: number[]) => handleVolumeChange(value[0])}
+				/>
 
-			<a className={"text-black m-2"}>Aktuelle Lautstärke: {Math.round(setVolumeOnLoad() * 100)}%</a>
+				<a className={"text-black m-2 select-none text-center"}>Aktuelle
+					Lautstärke: {Math.round(setVolumeOnLoad() * 100)}%</a>
 
-			{loading ?
-				(<Skeleton className="w-[20%] h-[40px] rounded-md bg-gray-700"/>) :
-				(<Select onValueChange={(selectedStation) => handleRadioChange(selectedStation)}>
-					<SelectTrigger className={"w-[20%] m-2"}>
-						<SelectValue placeholder={"Wähle ein Radio"} className={"text-black"}/>
-					</SelectTrigger>
-					<SelectContent className={"text-black m-2"}>
-						{Object.keys(groupRadioStations(radioStations)).map(groupName => (
-							<SelectGroup key={groupName}>
-								<SelectLabel>{groupName}</SelectLabel>
-								{groupRadioStations(radioStations)[groupName].map(station => (
-									<SelectItem key={station.id} value={station.name} className={"text-black m-2"}>
-										{station.name}
-									</SelectItem>
-								))}
-							</SelectGroup>
-						))}
-					</SelectContent>
-				</Select>)}
+				{loading ?
+					(<Skeleton className="w-full max-w-xs h-[40px] rounded-md bg-gray-700"/>) :
+					(<Select onValueChange={(selectedStation: string) => handleRadioChange(selectedStation)}>
+						<SelectTrigger className={"w-full max-w-xs m-2"}>
+							<SelectValue placeholder={"Wähle ein Radio"} className={"text-black"}/>
+						</SelectTrigger>
+						<SelectContent className={"text-black m-2"}>
+							{Object.keys(groupRadioStations(radioStations)).map(groupName => (
+								<SelectGroup key={groupName}>
+									<SelectLabel>{groupName}</SelectLabel>
+									{groupRadioStations(radioStations)[groupName].map(station => (
+										<SelectItem key={station.id} value={station.name} className={"text-black m-2"}>
+											{station.name}
+										</SelectItem>
+									))}
+								</SelectGroup>
+							))}
+						</SelectContent>
+					</Select>)
+				}
 
-
-			<div className={"w-[25%] h-[10vh] flex flex-row m-2"}>
-				<Button className={"h-[5vh] w-[50%] m-2 font-semibold"}
-						onClick={togglePlay}>{isPlaying ? PAUSE_ICON : PLAY_ICON}{isPlaying ? "Pause" : "Play"}</Button>
-				<Button className={"h-[5vh] w-[50%] m-2 font-semibold"}
-						onClick={() => handleMuteToggle()}>{isMuted ? VOLUME_OFF : VOLUME_ON}{isMuted ? "Stummgeschaltet" : "Click to Mute"}
-				</Button>
+				<div className={"w-full max-w-xs h-auto flex flex-col sm:flex-row justify-between m-2"}>
+					<Button
+						className={"h-10 w-full sm:w-[48%] m-2 font-semibold select-none"}
+						onClick={togglePlay}>
+						{isPlaying ? PAUSE_ICON : PLAY_ICON}
+						{isPlaying ? "Pause" : "Play"}
+					</Button>
+					<Button
+						className={"h-10 w-full sm:w-[48%] m-2 font-semibold select-none"}
+						onClick={handleMuteToggle}>
+						{isMuted ? VOLUME_OFF : VOLUME_ON}
+						{isMuted ? "Stummgeschaltet" : "Click to Mute"}
+					</Button>
+				</div>
 			</div>
 		</div>
-	)
+	);
 };
