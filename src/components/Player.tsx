@@ -97,10 +97,9 @@ export const Player = () => {
 
 	//Diese Funktion setzt beim Laden des Webradio die zuletzt in der Localstorage gesetzte Lautstärke.
 	const setVolumeOnLoad = () => {
-		const standVolString: string | null = localStorage.getItem("standVol")
-		const prevVolString = localStorage.getItem("prevVol");
-
 		if (typeof window !== "undefined") {
+			const standVolString: string | null = localStorage.getItem("standVol")
+			const prevVolString = localStorage.getItem("prevVol");
 			if (!standVolString) {
 				localStorage.setItem("standVol", config.standardVolume.toString())
 				console.log("Standart Volume wurde in die Localstorage geschrieben!")
