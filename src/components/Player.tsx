@@ -9,7 +9,7 @@ import streams from "@/utils/data.json"
 import {Button} from "@/components/ui/button";
 import {Slider} from "@/components/ui/slider";
 import {PauseIcon, PlayIcon, Volume2Icon, VolumeOffIcon} from "lucide-react"
-import React, {RefObject, useEffect, useRef, useState} from "react";
+import React, {RefObject, useCallback, useEffect, useRef, useState} from "react";
 import {
 	Select,
 	SelectContent,
@@ -24,12 +24,12 @@ import {IRadioGroup} from "@/interface/IRadioGroup";
 import {IRadioStation} from "@/interface/IRadioStation";
 import {Skeleton} from "@/components/ui/skeleton";
 import {useRouter} from "next/navigation";
+import {VolumeLevel} from "@/types/VolumeLevel";
 
 export const Player = () => {
 	//#region Constants
 	const {toast} = useToast()
 	const router = useRouter()
-
 
 	const stepPercentage: number = config.stepPercentage
 	const standartVolume: number = config.standardVolume
@@ -39,36 +39,19 @@ export const Player = () => {
 	const [isPlaying, setIsPlaying] = useState<boolean>(false)
 	const [isMuted, setisMuted] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(true)
-	const [volume, setVolume] = useState(standartVolume)
+	const [volume, setVolume] = useState<VolumeLevel>(standartVolume)
 	//#endregion
 
 	//#region ICONS
 	const PLAY_ICON: JSX.Element = <PlayIcon className={"mr-2"}/>
 	const PAUSE_ICON: JSX.Element = <PauseIcon className={"mr-2"}/>
-	const VOLUME_ON: JSX.Element = <Volume2Icon className={"mr-2"}/>
-	const VOLUME_OFF: JSX.Element = <VolumeOffIcon className={"mr-2"}/>
+	const VOLUME_ON_ICON: JSX.Element = <Volume2Icon className={"mr-2"}/>
+	const VOLUME_OFF_ICON: JSX.Element = <VolumeOffIcon className={"mr-2"}/>
 	//#endregion
 
 	const audioRef: RefObject<HTMLAudioElement> = useRef<HTMLAudioElement>(null);
 
-	// Alle Funktionen werden hier automatisch beim aufrufen der seite geladen.
-	useEffect(() => {
-		const {current: audioElement} = audioRef;
-
-		loadRadiostations()
-		setVolumeOnLoad()
-
-		if (audioElement) {
-			audioElement.volume = volume;
-			if (isPlaying) {
-				audioElement.play();
-			} else {
-				audioElement.pause();
-			}
-		}
-	}, [isPlaying, volume])
-
-	const loadRadiostations = () => {
+	const loadRadiostations = useCallback(() => {
 		try {
 			setRadioStations(streams)
 		} catch (e) {
@@ -82,21 +65,10 @@ export const Player = () => {
 		} finally {
 			setLoading(false)
 		}
-	}
-
-	//Diese Funktion Berechnet die Prozent Steps im Slider
-	const calculateStep = () => {
-		return 1 / (100 * stepPercentage)
-	}
-
-	//Diese Funktion is für die setzung der Lautstärke zuständig.
-	const handleVolumeChange = (vol: number) => {
-		localStorage.setItem("prevVol", "" + vol)
-		setVolume(vol)
-	}
+	},[toast, router])
 
 	//Diese Funktion setzt beim Laden des Webradio die zuletzt in der Localstorage gesetzte Lautstärke.
-	const setVolumeOnLoad = () => {
+	const setVolumeOnLoad = useCallback(() => {
 		if (typeof window !== "undefined") {
 			const standVolString: string | null = localStorage.getItem("standVol")
 			const prevVolString = localStorage.getItem("prevVol");
@@ -114,7 +86,37 @@ export const Player = () => {
 			return prevVol
 		}
 		return 0.0;
+	}, [router])
+
+	// Alle Funktionen werden hier automatisch beim aufrufen der seite geladen.
+	useEffect(() => {
+		const {current: audioElement} = audioRef;
+
+		loadRadiostations()
+		setVolumeOnLoad()
+
+		if (audioElement) {
+			audioElement.volume = volume;
+			if (isPlaying) {
+				audioElement.play();
+			} else {
+				audioElement.pause();
+			}
+		}
+	}, [isPlaying, volume, loadRadiostations, setVolumeOnLoad])
+
+	//Diese Funktion Berechnet die Prozent Steps im Slider
+	const calculateStep = () => {
+		return 1 / (100 * stepPercentage)
 	}
+
+	//Diese Funktion is für die setzung der Lautstärke zuständig.
+	const handleVolumeChange = (vol: number) => {
+		localStorage.setItem("prevVol", "" + vol)
+		setVolume(vol)
+	}
+
+
 
 	//Diese Funktion Handelt das Muten vom Aktiven Stream
 	const handleMuteToggle = () => {
@@ -212,7 +214,7 @@ export const Player = () => {
 					<Button
 						className={"h-10 w-full sm:w-[48%] m-2 font-semibold select-none"}
 						onClick={handleMuteToggle}>
-						{isMuted ? VOLUME_OFF : VOLUME_ON}
+						{isMuted ? VOLUME_OFF_ICON : VOLUME_ON_ICON}
 						{isMuted ? "Stummgeschaltet" : "Click to Mute"}
 					</Button>
 				</div>
