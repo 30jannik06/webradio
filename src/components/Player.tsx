@@ -135,6 +135,7 @@ export const Player = () => {
 		const radio = radioStations.find(x => x.name == newRadio);
 		if (!radio) return
 		localStorage.setItem("prevStrm", radio.name)
+		setIsPlaying(false)
 		setCurrentRadio(radio)
 	}
 
