@@ -32,9 +32,9 @@ export const Player = () => {
 	const [isMuted, setisMuted] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(true)
 	const [volume, setVolume] = useState<VolumeLevel>(standartVolume)
-	//#endregion
 
 	const audioRef: RefObject<HTMLAudioElement> = useRef<HTMLAudioElement>(null);
+	//#endregion
 
 	const loadRadiostations = useCallback(() => {
 		try {
