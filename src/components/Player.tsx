@@ -9,7 +9,6 @@ import streams from "@/utils/data.json"
 import React, {RefObject, useCallback, useEffect, useRef, useState} from "react";
 import {useToast} from "@/hooks/use-toast";
 import {IRadioGroup, IRadioStation} from "@/interface/IRadioStation";
-import {Skeleton} from "@/components/ui/skeleton";
 import {useRouter} from "next/navigation";
 import {VolumeLevel} from "@/types/VolumeLevel";
 import {AudioControls} from "@/components/PlayerComponents/AudioControls";
@@ -169,13 +168,10 @@ export const Player = () => {
 					handleVolumeChange={handleVolumeChange}/>
 
 				{/*Radio-Selector*/}
-				{loading ?
-					(<Skeleton className="w-full max-w-xs h-[40px] rounded-md bg-gray-700"/>) :
-					(<RadioSelector
-						radioStations={radioStations}
-						handleRadioChange={handleRadioChange}
-						groupRadioStations={groupRadioStations}/>)
-				}
+				<RadioSelector
+					radioStations={radioStations}
+					handleRadioChange={handleRadioChange}
+					groupRadioStations={groupRadioStations} loading={loading}/>
 
 				{/*Audio-Controls*/}
 				<AudioControls

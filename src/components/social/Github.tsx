@@ -1,3 +1,9 @@
+/**
+ * @author .jannik
+ * @file Github.tsx
+ * @link https://github.com/30jannik06
+ * @link https://discordapp.com/users/268084996235853824
+ */
 import React from "react";
 import Image from "next/image";
 import github from "@public/img/github.svg";

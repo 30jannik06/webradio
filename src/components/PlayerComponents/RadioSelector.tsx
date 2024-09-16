@@ -4,14 +4,23 @@
  * @link https://github.com/30jannik06
  * @link https://discordapp.com/users/268084996235853824
  */
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { IRadioSelectorProps } from "@/interface/IRadioSelectorProps";
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectLabel,
+	SelectTrigger,
+	SelectValue
+} from "@/components/ui/select";
+import {IRadioSelectorProps} from "@/interface/IRadioSelectorProps";
 
-export const RadioSelector = ({ radioStations, handleRadioChange, groupRadioStations }: IRadioSelectorProps) => (
-	<Select onValueChange={handleRadioChange}>
+export const RadioSelector = ({radioStations, handleRadioChange, groupRadioStations, loading}: IRadioSelectorProps) => (
+	<Select onValueChange={handleRadioChange} disabled={loading}>
 		{/* Select Trigger */}
-		<SelectTrigger className="w-full max-w-xs bg-gray-100 text-black font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out hover:bg-gray-200 hover:scale-105">
-			<SelectValue placeholder="Wähle ein Radio" className="text-black" />
+		<SelectTrigger
+			className="w-full max-w-xs bg-gray-100 text-black font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out hover:bg-gray-200 hover:scale-105">
+			<SelectValue placeholder="Wähle ein Radio" className="text-black"/>
 		</SelectTrigger>
 
 		{/* Select Content */}

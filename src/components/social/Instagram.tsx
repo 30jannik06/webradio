@@ -1,3 +1,9 @@
+/**
+ * @author .jannik
+ * @file Instagram.tsx
+ * @link https://github.com/30jannik06
+ * @link https://discordapp.com/users/268084996235853824
+ */
 import Image from "next/image";
 import instagram from "@public/img/insta.svg";
 import React from "react";

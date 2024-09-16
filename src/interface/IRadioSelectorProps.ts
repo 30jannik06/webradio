@@ -10,4 +10,5 @@ export interface IRadioSelectorProps {
 	radioStations: IRadioStation[];
 	handleRadioChange: (station: string) => void;
 	groupRadioStations: (stations: IRadioStation[]) => IRadioGroup;
+	loading: boolean;
 }
