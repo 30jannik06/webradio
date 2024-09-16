@@ -4,3 +4,7 @@ export interface IRadioStation {
 	group?: string,
 	streamURL: string
 }
+
+export interface IRadioGroup {
+	[group: string]: IRadioStation[];
+}

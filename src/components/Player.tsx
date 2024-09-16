@@ -6,25 +6,17 @@
  */
 import config from "@/utils/config.json"
 import streams from "@/utils/data.json"
-import {Button} from "@/components/ui/button";
-import {Slider} from "@/components/ui/slider";
-import {PauseIcon, PlayIcon, Volume2Icon, VolumeOffIcon} from "lucide-react"
 import React, {RefObject, useCallback, useEffect, useRef, useState} from "react";
-import {
-	Select,
-	SelectContent,
-	SelectGroup,
-	SelectItem,
-	SelectLabel,
-	SelectTrigger,
-	SelectValue
-} from "@/components/ui/select";
 import {useToast} from "@/hooks/use-toast";
-import {IRadioGroup} from "@/interface/IRadioGroup";
-import {IRadioStation} from "@/interface/IRadioStation";
+import {IRadioGroup, IRadioStation} from "@/interface/IRadioStation";
 import {Skeleton} from "@/components/ui/skeleton";
 import {useRouter} from "next/navigation";
 import {VolumeLevel} from "@/types/VolumeLevel";
+import {AudioControls} from "@/components/PlayerComponents/AudioControls";
+import {VolumeSlider} from "@/components/PlayerComponents/VolumeSlider";
+import {RadioSelector} from "@/components/PlayerComponents/RadioSelector";
+import {AudioPlayer} from "@/components/PlayerComponents/AudioPlayer";
+import {CurrentRadioDisplay} from "@/components/PlayerComponents/CurrentRadioDisplay";
 
 export const Player = () => {
 	//#region Constants
@@ -40,13 +32,6 @@ export const Player = () => {
 	const [isMuted, setisMuted] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(true)
 	const [volume, setVolume] = useState<VolumeLevel>(standartVolume)
-	//#endregion
-
-	//#region ICONS
-	const PLAY_ICON: JSX.Element = <PlayIcon className={"mr-2"}/>
-	const PAUSE_ICON: JSX.Element = <PauseIcon className={"mr-2"}/>
-	const VOLUME_ON_ICON: JSX.Element = <Volume2Icon className={"mr-2"}/>
-	const VOLUME_OFF_ICON: JSX.Element = <VolumeOffIcon className={"mr-2"}/>
 	//#endregion
 
 	const audioRef: RefObject<HTMLAudioElement> = useRef<HTMLAudioElement>(null);
@@ -65,7 +50,7 @@ export const Player = () => {
 		} finally {
 			setLoading(false)
 		}
-	},[toast, router])
+	}, [toast, router])
 
 	//Diese Funktion setzt beim Laden des Webradio die zuletzt in der Localstorage gesetzte Lautstärke.
 	const setVolumeOnLoad = useCallback(() => {
@@ -115,8 +100,6 @@ export const Player = () => {
 		localStorage.setItem("prevVol", "" + vol)
 		setVolume(vol)
 	}
-
-
 
 	//Diese Funktion Handelt das Muten vom Aktiven Stream
 	const handleMuteToggle = () => {
@@ -168,57 +151,38 @@ export const Player = () => {
 		<div className={"w-full min-h-screen flex justify-center items-center p-4"}>
 			<div
 				className={"flex flex-col w-full max-w-lg bg-gray-100 items-center justify-center p-4 rounded-lg shadow-md"}>
-				<audio ref={audioRef} title={"song title"} src={currentRadio?.streamURL}/>
 
-				<a className={"text-black m-2 select-none text-center"}>{currentRadio ? currentRadio.name : "Kein aktiver sender"}</a>
+				{/*Audio-Player*/}
+				<AudioPlayer
+					audioRef={audioRef}
+					streamURL={currentRadio?.streamURL}/>
 
-				<Slider
-					min={0}
-					defaultValue={[setVolumeOnLoad()]}
-					step={calculateStep()}
-					max={1}
-					className={"w-full max-w-xs m-2"}
-					onValueChange={(value: number[]) => handleVolumeChange(value[0])}
-				/>
+				{/*Current-Radio Display*/}
+				<CurrentRadioDisplay
+					currentRadio={currentRadio}/>
 
-				<a className={"text-black m-2 select-none text-center"}>Aktuelle
-					Lautstärke: {Math.round(setVolumeOnLoad() * 100)}%</a>
+				{/*Volume-Slider*/}
+				<VolumeSlider
+					volume={volume}
+					setVolumeOnLoad={setVolumeOnLoad}
+					calculateStep={calculateStep}
+					handleVolumeChange={handleVolumeChange}/>
 
+				{/*Radio-Selector*/}
 				{loading ?
 					(<Skeleton className="w-full max-w-xs h-[40px] rounded-md bg-gray-700"/>) :
-					(<Select onValueChange={(selectedStation: string) => handleRadioChange(selectedStation)}>
-						<SelectTrigger className={"w-full max-w-xs m-2"}>
-							<SelectValue placeholder={"Wähle ein Radio"} className={"text-black"}/>
-						</SelectTrigger>
-						<SelectContent className={"text-black m-2"}>
-							{Object.keys(groupRadioStations(radioStations)).map(groupName => (
-								<SelectGroup key={groupName}>
-									<SelectLabel>{groupName}</SelectLabel>
-									{groupRadioStations(radioStations)[groupName].map(station => (
-										<SelectItem key={station.id} value={station.name} className={"text-black m-2"}>
-											{station.name}
-										</SelectItem>
-									))}
-								</SelectGroup>
-							))}
-						</SelectContent>
-					</Select>)
+					(<RadioSelector
+						radioStations={radioStations}
+						handleRadioChange={handleRadioChange}
+						groupRadioStations={groupRadioStations}/>)
 				}
 
-				<div className={"w-full max-w-xs h-auto flex flex-col sm:flex-row justify-between m-2"}>
-					<Button
-						className={"h-10 w-full sm:w-[48%] m-2 font-semibold select-none"}
-						onClick={togglePlay}>
-						{isPlaying ? PAUSE_ICON : PLAY_ICON}
-						{isPlaying ? "Pause" : "Play"}
-					</Button>
-					<Button
-						className={"h-10 w-full sm:w-[48%] m-2 font-semibold select-none"}
-						onClick={handleMuteToggle}>
-						{isMuted ? VOLUME_OFF_ICON : VOLUME_ON_ICON}
-						{isMuted ? "Stummgeschaltet" : "Click to Mute"}
-					</Button>
-				</div>
+				{/*Audio-Controls*/}
+				<AudioControls
+					isPlaying={isPlaying}
+					togglePlay={togglePlay}
+					isMuted={isMuted}
+					handleMuteToggle={handleMuteToggle}/>
 			</div>
 		</div>
 	);
