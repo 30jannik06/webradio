@@ -104,7 +104,7 @@
 	{
 		"id": 18,
 		"name": "Radio Bollerwagen",
-		"streamURL": "http://player.ffn.de/radiobollerwagen.mp3",
+		"streamURL": "http://ffn-stream26.radiohost.de/radiobollerwagen_mp3-192?_art=dD0xNzI2NTYxMTU4JmQ9Yjc1Zjg0ZWE3MjE4YTYxNWQ1NzY",
 		"group": "Others"
 	},
 	{
@@ -340,5 +340,155 @@
 		"name": "SWR 3",
 		"streamURL": "https://liveradio.swr.de/sw331ch/swr3/",
 		"group": "Others"
+	},
+	{
+		"id": 58,
+		"name": "FFN Hits",
+		"streamURL": "https://ffn-de-hz-fal-stream09-cluster01.radiohost.de/ffn-hits_mp3-192",
+		"group": "FFN"
+	},
+	{
+		"id": 59,
+		"name": "FFN Rockt!",
+		"streamURL": "https://ffn-stream26.radiohost.de/ffn-rockt_mp3-192?_art=dD0xNzI2NTU0NDI0JmQ9NTFlMWRmM2Q1MTI3Yzc4YTViYWM",
+		"group": "FFN"
+	},
+	{
+		"id": 60,
+		"name": "FFN 80er",
+		"streamURL": "https://ffn-de-hz-fal-stream10-cluster01.radiohost.de/ffn-80er_mp3-192?_art=dD0xNzI2NTU0NDUxJmQ9MjdjYmQ2YTE4ZmFhOTJkOWM0ZWM",
+		"group": "FFN"
+	},
+	{
+		"id": 61,
+		"name": "FFN 90er",
+		"streamURL": "http://ffn-de-hz-fal-stream10-cluster01.radiohost.de/neunziger_mp3-192?_art=dD0xNzI2NTU0NDUxJmQ9ZjY1NmZlNjdlMDEyNzY3ZDkyYzY",
+		"group": "FFN"
+	},
+	{
+		"id": 62,
+		"name": "FFN Comedy",
+		"streamURL": "http://ffn-stream20.radiohost.de/ffn-comedy_mp3-192?_art=dD0xNzI2NTU0NDUzJmQ9NzAzZTVhMjlmN2FhOGVhNGY4MDQ",
+		"group": "FFN"
+	},
+	{
+		"id": 63,
+		"name": "RTL Schlagerliebe",
+		"streamURL": "http://rtlberlin.streamabc.net/rtlb-schlagerliebe-mp3-192-3577731?sABC=66r92r60%230%23oqs1003094553727p42pqq3040o01o3r%23&aw_0_1st.playerid=&amsparams=playerid:;skey:1726557792",
+		"group": "RTL"
+	},
+	{
+		"id": 64,
+		"name": "RTL 90er",
+		"streamURL": "http://rtlberlin.streamabc.net/rtlb-plus90er-mp3-192-3934896?sABC=66r92r77%230%23oqs1003094553727p42pqq3040o01o3r%23&aw_0_1st.playerid=&amsparams=playerid:;skey:1726557815",
+		"group": "RTL"
+	},
+	{
+		"id": 65,
+		"name": "FFN 80er",
+		"streamURL": "https://ffn-de-hz-fal-stream10-cluster01.radiohost.de/ffn-80er_mp3-192?_art=dD0xNzI2NTU0NDUxJmQ9MjdjYmQ2YTE4ZmFhOTJkOWM0ZWM",
+		"group": "FFN"
+	},
+	{
+		"id": 66,
+		"name": "RTL Charts",
+		"streamURL": "http://rtlberlin.streamabc.net/rtlb-pluscharts-mp3-192-6275339?sABC=66r92ro8%230%23oqs1003094553727p42pqq3040o01o3r%23&aw_0_1st.playerid=&amsparams=playerid:;skey:1726557880",
+		"group": "RTL"
+	},
+	{
+		"id": 67,
+		"name": "RTL Mallorca Party",
+		"streamURL": "http://rtlberlin.streamabc.net/rtlb-mallehits-mp3-192-5969428?sABC=66r92rp8%230%23oqs1003094553727p42pqq3040o01o3r%23&aw_0_1st.playerid=&amsparams=playerid:;skey:1726557896",
+		"group": "RTL"
+	},
+	{
+		"id": 68,
+		"name": "JAM FM",
+		"streamURL": "http://rtlberlin.streamabc.net/rtlb-jamfmcharts-mp3-192-5594520?sABC=66r92rss%230%23oqs1003094553727p42pqq3040o01o3r%23&aw_0_1st.playerid=&amsparams=playerid:;skey:1726557951",
+		"group": "Others"
+	},
+	{
+		"id": 69,
+		"name": "80s80s Dance",
+		"streamURL": "http://streams.80s80s.de/dance/mp3-192/streams.80s80s.de/",
+		"group": "80s80s"
+	},
+	{
+		"id": 70,
+		"name": "80s80s Deutsch",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80sdeutsch9246502-mp3-192-4601709?sABC=66r93qn7%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726561703",
+		"group": "80s80s"
+	},
+	{
+		"id": 71,
+		"name": "80s80s Dinnerparty",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80sdinnerparty6359900-mp3-192-9622069?sABC=66r93qr4%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726561764",
+		"group": "80s80s"
+	},
+	{
+		"id": 72,
+		"name": "80s80s HipHop",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80shiphop3449572-mp3-192-3635250?sABC=66r93r41%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726561857",
+		"group": "80s80s"
+	},
+	{
+		"id": 73,
+		"name": "80s80s Maxis",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80smaxis2114493-mp3-192-5359027?sABC=66r93r97%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726561943",
+		"group": "80s80s"
+	},
+	{
+		"id": 74,
+		"name": "80s80s In The Mix",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80smix8012507-mp3-192-3015055?sABC=66r93rp5%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726561989",
+		"group": "80s80s"
+	},
+	{
+		"id": 75,
+		"name": "80s80s NDW",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80sndw1662997-mp3-192-5786089?sABC=66r93rs4%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726562036",
+		"group": "80s80s"
+	},
+	{
+		"id": 76,
+		"name": "80s80s Partyhits",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80sparty9936054-mp3-192-1227605?sABC=66r943nq%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726563245",
+		"group": "80s80s"
+	},
+	{
+		"id": 77,
+		"name": "80s80s Reggae",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80sreggae-mp3-192-3880321?sABC=66r94448%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726563400",
+		"group": "80s80s"
+	},
+	{
+		"id": 78,
+		"name": "80s80s Rock",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80srock2191507-mp3-192-4255750?sABC=66r944no%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726563499",
+		"group": "80s80s"
+	},
+	{
+		"id": 79,
+		"name": "80s80s Summerhits",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80ssummerhits6639316-mp3-192-4184283?sABC=66r944r1%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726563553",
+		"group": "80s80s"
+	},
+	{
+		"id": 77,
+		"name": "80s80s Techno",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80stechno-mp3-192-6907852?sABC=66r9451p%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726563612",
+		"group": "80s80s"
+	},
+	{
+		"id": 75,
+		"name": "80s80s Rock",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80srock2191507-mp3-192-4255750?sABC=66r944no%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726563499",
+		"group": "80s80s"
+	},
+	{
+		"id": 76,
+		"name": "80s80s Summerhits",
+		"streamURL": "http://regiocast.streamabc.net/regc-80s80ssummerhits6639316-mp3-192-4184283?sABC=66r944r1%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726563553",
+		"group": "80s80s"
 	}
 ]
