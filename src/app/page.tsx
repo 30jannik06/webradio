@@ -10,7 +10,7 @@ import {Footer} from "@/components/Footer";
 import {Toaster} from "@/components/ui/toaster";
 import React, {Suspense} from "react";
 import LoadingScreen from "@/app/loading";
-import {Player} from "@/components/Player";
+import {Player} from "@/components/PlayerComponents/Player";
 
 export default function Home() {
 
