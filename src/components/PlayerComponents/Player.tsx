@@ -6,78 +6,79 @@
  */
 import config from "@/utils/config.json"
 import streams from "@/utils/data.json"
-import React, {RefObject, useCallback, useEffect, useRef, useState} from "react";
-import {useToast} from "@/hooks/use-toast";
-import {IRadioGroup, IRadioStation} from "@/interface/IRadioStation";
-import {useRouter} from "next/navigation";
-import {VolumeLevel} from "@/types/VolumeLevel";
-import {AudioControls} from "@/components/PlayerComponents/AudioControls";
-import {VolumeSlider} from "@/components/PlayerComponents/VolumeSlider";
-import {RadioSelector} from "@/components/PlayerComponents/RadioSelector";
-import {AudioPlayer} from "@/components/PlayerComponents/AudioPlayer";
-import {CurrentRadioDisplay} from "@/components/PlayerComponents/CurrentRadioDisplay";
+import React, { RefObject, useCallback, useEffect, useRef, useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { IRadioGroup, IRadioStation } from "@/interface/IRadioStation";
+import { useRouter } from "next/navigation";
+import { VolumeLevel } from "@/types/VolumeLevel";
+import { AudioControls } from "@/components/PlayerComponents/AudioControls";
+import { VolumeSlider } from "@/components/PlayerComponents/VolumeSlider";
+import { RadioSelector } from "@/components/PlayerComponents/RadioSelector";
+import { AudioPlayer } from "@/components/PlayerComponents/AudioPlayer";
+import { CurrentRadioDisplay } from "@/components/PlayerComponents/CurrentRadioDisplay";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const Player = () => {
 	//#region Constants
-	const {toast} = useToast()
-	const router = useRouter()
+	const { toast } = useToast();
+	const router = useRouter();
 
-	const stepPercentage: number = config.stepPercentage
-	const standartVolume: number = config.standardVolume
-	const [previousVolume, setPreviousVolume] = useState<number>(config.previousVolume)
-	const [currentRadio, setCurrentRadio] = useState<IRadioStation>()
-	const [radioStations, setRadioStations] = useState<IRadioStation[]>([])
-	const [isPlaying, setIsPlaying] = useState<boolean>(false)
+	const stepPercentage: number = config.stepPercentage;
+	const standartVolume: number = config.standardVolume;
+	const [previousVolume, setPreviousVolume] = useState<number>(config.previousVolume);
+	const [currentRadio, setCurrentRadio] = useState<IRadioStation>();
+	const [radioStations, setRadioStations] = useState<IRadioStation[]>([]);
+	const [isPlaying, setIsPlaying] = useState<boolean>(false);
 	const [isMuted, setisMuted] = useState<boolean>(false);
-	const [loading, setLoading] = useState<boolean>(true)
-	const [volume, setVolume] = useState<VolumeLevel>(standartVolume)
+	const [loading, setLoading] = useState<boolean>(true);
+	const [volume, setVolume] = useState<VolumeLevel>(standartVolume);
 
 	const audioRef: RefObject<HTMLAudioElement> = useRef<HTMLAudioElement>(null);
 	//#endregion
 
 	const loadRadiostations = useCallback(() => {
 		try {
-			setRadioStations(streams)
+			setRadioStations(streams);
 		} catch (e) {
 			console.error("Fehler beim Laden der Radiostationen:", e);
 			toast({
 				variant: "destructive",
 				title: "Lade Fehler",
 				description: "Die Radiostationen konnten nicht geladen werden."
-			})
-			router.push("/problem")
+			});
+			router.push("/problem");
 		} finally {
-			setLoading(false)
+			setLoading(false);
 		}
-	}, [toast, router])
+	}, [toast, router]);
 
-	//Diese Funktion setzt beim Laden des Webradio die zuletzt in der Localstorage gesetzte Lautstärke.
+	// Setzt beim Laden des Webradio die zuletzt in der LocalStorage gesetzte Lautstärke.
 	const setVolumeOnLoad = useCallback(() => {
 		if (typeof window !== "undefined") {
-			const standVolString: string | null = localStorage.getItem("standVol")
+			const standVolString: string | null = localStorage.getItem("standVol");
 			const prevVolString = localStorage.getItem("prevVol");
 			if (!standVolString) {
-				localStorage.setItem("standVol", config.standardVolume.toString())
-				console.log("Standart Volume wurde in die Localstorage geschrieben!")
+				localStorage.setItem("standVol", config.standardVolume.toString());
+				console.log("Standart Volume wurde in die LocalStorage geschrieben!");
 			}
 			if (!prevVolString) {
-				localStorage.setItem("prevVol", config.previousVolume.toString())
-				router.refresh()
-				console.log("Previous Volume wurde in die Localstorage geschrieben!")
+				localStorage.setItem("prevVol", config.previousVolume.toString());
+				router.refresh();
+				console.log("Previous Volume wurde in die LocalStorage geschrieben!");
 			}
 			const prevVolStr = localStorage.getItem("prevVol");
 			const prevVol = prevVolStr ? parseFloat(prevVolStr) : 0.0;
-			return prevVol
+			return prevVol;
 		}
 		return 0.0;
-	}, [router])
+	}, [router]);
 
-	// Alle Funktionen werden hier automatisch beim aufrufen der seite geladen.
+	// Alle Funktionen werden hier automatisch beim Aufrufen der Seite geladen.
 	useEffect(() => {
-		const {current: audioElement} = audioRef;
+		const { current: audioElement } = audioRef;
 
-		loadRadiostations()
-		setVolumeOnLoad()
+		loadRadiostations();
+		setVolumeOnLoad();
 
 		if (audioElement) {
 			audioElement.volume = volume;
@@ -87,56 +88,56 @@ export const Player = () => {
 				audioElement.pause();
 			}
 		}
-	}, [isPlaying, volume, loadRadiostations, setVolumeOnLoad])
+	}, [isPlaying, volume, loadRadiostations, setVolumeOnLoad]);
 
-	//Diese Funktion Berechnet die Prozent Steps im Slider
+	// Berechnet die Prozent-Schritte im Slider.
 	const calculateStep = () => {
-		return 1 / (100 * stepPercentage)
-	}
+		return 1 / (100 * stepPercentage);
+	};
 
-	//Diese Funktion is für die setzung der Lautstärke zuständig.
+	// Setzt die Lautstärke.
 	const handleVolumeChange = (vol: number) => {
-		localStorage.setItem("prevVol", "" + vol)
-		setVolume(vol)
-	}
+		localStorage.setItem("prevVol", "" + vol);
+		setVolume(vol);
+	};
 
-	//Diese Funktion Handelt das Muten vom Aktiven Stream
+	// Handelt das Muten des aktiven Streams.
 	const handleMuteToggle = () => {
-		setisMuted(!isMuted)
+		setisMuted(!isMuted);
 		if (isMuted) {
-			setVolume(previousVolume)
+			setVolume(previousVolume);
 		} else {
-			setPreviousVolume(volume)
-			setVolume(0)
+			setPreviousVolume(volume);
+			setVolume(0);
 		}
-		setisMuted(!isMuted)
-	}
+		setisMuted(!isMuted);
+	};
 
-	//Diese Funktion Handelt den Radio Station Wechsel
+	// Handelt den Wechsel der Radiostation.
 	const handleRadioChange = (newRadio: string) => {
-		const radio = radioStations.find(x => x.name == newRadio);
-		if (!radio) return
-		localStorage.setItem("prevStrm", radio.name)
-		setIsPlaying(false)
-		setCurrentRadio(radio)
-	}
+		const radio = radioStations.find(x => x.name === newRadio);
+		if (!radio) return;
+		localStorage.setItem("prevStrm", radio.name);
+		setIsPlaying(false);
+		setCurrentRadio(radio);
+	};
 
 	const togglePlay = () => {
 		if (!currentRadio) {
 			toast({
 				variant: "destructive",
-				title: "Es Fehlt eine Ausgewählte Radiostation",
-				description: "Bitte wähle eine Radiostation aus vor dem Play drücken!"
-			})
-			return
+				title: "Es fehlt eine ausgewählte Radiostation",
+				description: "Bitte wähle eine Radiostation aus, bevor du Play drückst!"
+			});
+			return;
 		}
-		setIsPlaying(!isPlaying)
-	}
+		setIsPlaying(!isPlaying);
+	};
 
 	const groupRadioStations = (stations: IRadioStation[]): IRadioGroup => {
 		return stations.reduce((groups, station) => {
 			const groupName = station.group;
-			if (groupName) { // Sicherstellen, dass groupName nicht undefined ist
+			if (groupName) {
 				if (!groups[groupName]) {
 					groups[groupName] = [];
 				}
@@ -144,7 +145,8 @@ export const Player = () => {
 			}
 			return groups;
 		}, {} as IRadioGroup);
-	}
+	};
+
 
 	return (
 		<div className={"w-full min-h-screen flex justify-center items-center p-4"}>
