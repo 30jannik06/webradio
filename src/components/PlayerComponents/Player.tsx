@@ -16,7 +16,6 @@ import { VolumeSlider } from "@/components/PlayerComponents/VolumeSlider";
 import { RadioSelector } from "@/components/PlayerComponents/RadioSelector";
 import { AudioPlayer } from "@/components/PlayerComponents/AudioPlayer";
 import { CurrentRadioDisplay } from "@/components/PlayerComponents/CurrentRadioDisplay";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const Player = () => {
 	//#region Constants

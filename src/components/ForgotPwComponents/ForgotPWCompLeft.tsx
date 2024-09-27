@@ -8,7 +8,7 @@ export const ForgotPWCompLeft = () => {
 	return (
 		<div className="w-full sm:w-1/2 pr-6">
 			<h1 className="text-white font-bold text-2xl sm:text-3xl mb-2">Forgot Your Password?</h1>
-			<p className="text-gray-400 mb-6 text-sm">No worries, we'll help you reset it!</p>
+			<p className="text-gray-400 mb-6 text-sm">No worries, we&quot;ll help you reset it!</p>
 
 			{/* Email */}
 			<div className="mb-4">

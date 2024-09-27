@@ -8,7 +8,7 @@ export const RegisterCompLeft = () =>{
 	return (
 		<div className="w-full sm:w-1/2 pr-6">
 			<h1 className="text-white font-bold text-2xl sm:text-3xl mb-2">Create an account</h1>
-			<p className="text-gray-400 mb-6 text-sm">Join us! It's quick and easy.</p>
+			<p className="text-gray-400 mb-6 text-sm">Join us! It&quot;s quick and easy.</p>
 
 			{/* Username */}
 			<div className="mb-4">

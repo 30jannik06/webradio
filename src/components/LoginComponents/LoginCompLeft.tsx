@@ -8,7 +8,7 @@ export const LoginCompLeft = () => {
 	return (
 		<div className="w-full sm:w-1/2 pr-6">
 			<h1 className="text-white font-bold text-2xl sm:text-3xl mb-2">Welcome back!</h1>
-			<p className="text-gray-400 mb-6 text-sm">We're so excited to see you again!</p>
+			<p className="text-gray-400 mb-6 text-sm">We&quot;re so excited to see you again!</p>
 
 			{/* Email or Phone Number */}
 			<div className="mb-4">

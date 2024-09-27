@@ -8,7 +8,7 @@ export const ForgotPWCompRight = () => {
 				<Image src={logo} alt="Forgot Password Illustration" className="h-40 w-40"/>
 				<p className="text-gray-800 font-semibold mt-4 text-center">Need Help?</p>
 				<p className="text-gray-500 text-xs mt-2 text-center">
-					Provide your email, and we'll send you instructions to reset your password.
+					Provide your email, and we&quot;ll send you instructions to reset your password.
 				</p>
 			</div>
 		</div>
