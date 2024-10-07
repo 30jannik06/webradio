@@ -6,20 +6,20 @@
  */
 import config from "@/utils/config.json"
 import streams from "@/utils/data.json"
-import React, { RefObject, useCallback, useEffect, useRef, useState } from "react";
-import { useToast } from "@/hooks/use-toast";
-import { IRadioGroup, IRadioStation } from "@/interface/IRadioStation";
-import { useRouter } from "next/navigation";
-import { VolumeLevel } from "@/types/VolumeLevel";
-import { AudioControls } from "@/components/PlayerComponents/AudioControls";
-import { VolumeSlider } from "@/components/PlayerComponents/VolumeSlider";
-import { RadioSelector } from "@/components/PlayerComponents/RadioSelector";
-import { AudioPlayer } from "@/components/PlayerComponents/AudioPlayer";
-import { CurrentRadioDisplay } from "@/components/PlayerComponents/CurrentRadioDisplay";
+import React, {RefObject, useCallback, useEffect, useRef, useState} from "react";
+import {useToast} from "@/hooks/use-toast";
+import {IRadioGroup, IRadioStation} from "@/interface/IRadioStation";
+import {useRouter} from "next/navigation";
+import {VolumeLevel} from "@/types/VolumeLevel";
+import {AudioControls} from "@/components/Player/Components/AudioControls";
+import {VolumeSlider} from "@/components/Player/Components/VolumeSlider";
+import {RadioSelector} from "@/components/Player/Components/RadioSelector";
+import {AudioPlayer} from "@/components/Player/Components/AudioPlayer";
+import {CurrentRadioDisplay} from "@/components/Player/Components/CurrentRadioDisplay";
 
 export const Player = () => {
 	//#region Constants
-	const { toast } = useToast();
+	const {toast} = useToast();
 	const router = useRouter();
 
 	const stepPercentage: number = config.stepPercentage;
@@ -74,7 +74,7 @@ export const Player = () => {
 
 	// Alle Funktionen werden hier automatisch beim Aufrufen der Seite geladen.
 	useEffect(() => {
-		const { current: audioElement } = audioRef;
+		const {current: audioElement} = audioRef;
 
 		loadRadiostations();
 		setVolumeOnLoad();

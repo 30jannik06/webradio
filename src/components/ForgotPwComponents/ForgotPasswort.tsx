@@ -1,7 +1,7 @@
-import {ForgotPWCompLeft} from "@/components/ForgotPwComponents/ForgotPWCompLeft";
-import {ForgotPWCompRight} from "@/components/ForgotPwComponents/ForgotPWCompRight";
+import {ForgotPWCompLeft} from "@/components/ForgotPwComponents/Components/ForgotPWCompLeft";
+import {ForgotPWCompRight} from "@/components/ForgotPwComponents/Components/ForgotPWCompRight";
 
-export const ForgotPasswordComp = () => {
+export const ForgotPasswort = () => {
 
 	return (
 		<main className="bg-blue-500 min-h-screen flex justify-center items-center">

@@ -1,12 +1,12 @@
 "use client"
 import React from "react";
-import {RegisterComp} from "@/components/RegisterComponents/RegisterComp";
+import {Register} from "@/components/RegisterComponents/Register";
 
-export default function Register() {
+export default function RegisterPage() {
 
 	return (
 		<>
-			<RegisterComp />
+			<Register/>
 		</>
 	)
 }

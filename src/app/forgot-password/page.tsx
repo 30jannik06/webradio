@@ -1,11 +1,11 @@
 "use client"
 import React from "react";
-import {ForgotPasswordComp} from "@/components/ForgotPwComponents/ForgotPwComp";
+import {ForgotPasswort} from "@/components/ForgotPwComponents/ForgotPasswort";
 
-export default function ForgotPw() {
+export default function ForgotPasswordPage() {
 	return (
 		<>
-			<ForgotPasswordComp />
+			<ForgotPasswort />
 		</>
 	)
 }

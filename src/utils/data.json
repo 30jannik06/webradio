@@ -474,21 +474,11 @@
 		"group": "80s80s"
 	},
 	{
-		"id": 77,
+		"id": 80,
 		"name": "80s80s Techno",
 		"streamURL": "http://regiocast.streamabc.net/regc-80s80stechno-mp3-192-6907852?sABC=66r9451p%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726563612",
 		"group": "80s80s"
-	},
-	{
-		"id": 75,
-		"name": "80s80s Rock",
-		"streamURL": "http://regiocast.streamabc.net/regc-80s80srock2191507-mp3-192-4255750?sABC=66r944no%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726563499",
-		"group": "80s80s"
-	},
-	{
-		"id": 76,
-		"name": "80s80s Summerhits",
-		"streamURL": "http://regiocast.streamabc.net/regc-80s80ssummerhits6639316-mp3-192-4184283?sABC=66r944r1%230%23oqs1003094553727p42pqq3040o01o3r%23fgernzf.80f80f.qr&aw_0_1st.playerid=streams.80s80s.de&amsparams=playerid:streams.80s80s.de;skey:1726563553",
-		"group": "80s80s"
 	}
 ]
+
+

@@ -1,12 +1,12 @@
 "use client"
-import {LoginComp} from "@/components/LoginComponents/LoginComp";
+import {Login} from "@/components/LoginComponents/Login";
 import React from "react";
 
-export default function Login() {
+export default function LoginPage() {
 
 	return (
 		<>
-			<LoginComp/>
+			<Login/>
 		</>
 	)
 }

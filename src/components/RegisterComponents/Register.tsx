@@ -1,7 +1,7 @@
-import {RegisterCompLeft} from "@/components/RegisterComponents/RegisterCompLeft";
-import {RegisterCompRight} from "@/components/RegisterComponents/RegisterCompRight";
+import {RegisterCompLeft} from "@/components/RegisterComponents/Components/RegisterCompLeft";
+import {RegisterCompRight} from "@/components/RegisterComponents/Components/RegisterCompRight";
 
-export const RegisterComp = () => {
+export const Register = () => {
 
 	return (
 		<main className="bg-blue-500 min-h-screen flex justify-center items-center">
