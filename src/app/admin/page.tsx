@@ -1,25 +1,27 @@
 "use client"
-import { useEffect, useState } from 'react';
+import {IRadioStation} from "@/interface/IRadioStation";
+import {db} from "@/lib/db";
 
-export default function Home() {
-	const [dbStatus, setDbStatus] = useState('');
-
-	useEffect(() => {
-		const checkDbStatus = async () => {
-			try {
-				const response = await fetch('/api/db-status');
-				const data = await response.json();
-				setDbStatus(data.message);
-			} catch (error) {
-				setDbStatus('Fehler beim Abrufen des DB-Status');
-			}
-		};
-		checkDbStatus();
-	}, []);
+export default async function Home() {
+	const streams: IRadioStation[] = [];
+	let streamList = await db.streams.findMany({});
+	if (!streamList) streamList = [];
+	for (const stream of streamList) {
+		streams.push({
+			id: stream.id,
+			name: stream.name,
+			streamURL: stream.streamURL,
+			group: stream.group
+		})
+	}
 
 	return (
 		<div>
-			<h1>{dbStatus}</h1>
+			{streams.map(x => {
+				return (
+					<div key={x.id}>{x.name}</div>
+				)
+			})}
 		</div>
 	);
 }

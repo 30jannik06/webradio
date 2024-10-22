@@ -1,14 +1,16 @@
-import {PrismaClient} from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
-export const db = new PrismaClient()
+const createPrismaClient = () =>
+	new PrismaClient({
+		log:
+			process.env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
+	});
 
-async function connectToDatabase() {
-	try {
-		await db.$connect();
-		console.log("Connected to Database");
-	} catch (error) {
-		console.error("Fehler bei der Verbindung zur Datenbank:", error);
-	}
-}
+const globalForPrisma = globalThis as unknown as {
+	prisma: ReturnType<typeof createPrismaClient> | undefined;
+};
 
-connectToDatabase()
+export const db = globalForPrisma.prisma ?? createPrismaClient();
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = db;
