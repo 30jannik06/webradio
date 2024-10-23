@@ -1,5 +1,4 @@
-"use client"
-import {Login} from "@/components/LoginComponents/Login";
+import {Login} from "@/components/Login/Login";
 import React from "react";
 
 export default function LoginPage() {

@@ -1,6 +1,6 @@
-import {RegisterCompLeft} from "@/components/RegisterComponents/Components/RegisterCompLeft";
-import {RegisterCompRight} from "@/components/RegisterComponents/Components/RegisterCompRight";
-
+"use client"
+import {RegisterCompLeft} from "@/components/Register/Components/RegisterCompLeft";
+import {RegisterCompRight} from "@/components/Register/Components/RegisterCompRight";
 export const Register = () => {
 
 	return (

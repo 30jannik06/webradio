@@ -13,7 +13,7 @@ import {
 	SelectTrigger,
 	SelectValue
 } from "@/components/ui/select";
-import {IRadioSelectorProps} from "@/interface/IRadioSelectorProps";
+import type {IRadioSelectorProps} from "@/interface/IRadioSelectorProps";
 
 export const RadioSelector = ({radioStations, handleRadioChange, groupRadioStations, loading}: IRadioSelectorProps) => (
 	<Select onValueChange={handleRadioChange} disabled={loading}>
@@ -28,7 +28,7 @@ export const RadioSelector = ({radioStations, handleRadioChange, groupRadioStati
 			{Object.keys(groupRadioStations(radioStations)).map((groupName) => (
 				<SelectGroup key={groupName} className="mb-2">
 					<SelectLabel className="text-gray-500 font-bold px-4 py-2">{groupName}</SelectLabel>
-					{groupRadioStations(radioStations)[groupName].map((station) => (
+					{groupRadioStations(radioStations)[groupName]?.map((station) => (
 						<SelectItem
 							key={station.id}
 							value={station.name}

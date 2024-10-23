@@ -1,5 +1,6 @@
-import {LoginCompRight} from "@/components/LoginComponents/Components/LoginCompRight";
-import {LoginCompLeft} from "@/components/LoginComponents/Components/LoginCompLeft";
+"use client"
+import {LoginCompRight} from "@/components/Login/Components/LoginCompRight";
+import {LoginCompLeft} from "@/components/Login/Components/LoginCompLeft";
 
 export const Login = () => {
 	return (

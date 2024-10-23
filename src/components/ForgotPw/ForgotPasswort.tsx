@@ -1,5 +1,6 @@
-import {ForgotPWCompLeft} from "@/components/ForgotPwComponents/Components/ForgotPWCompLeft";
-import {ForgotPWCompRight} from "@/components/ForgotPwComponents/Components/ForgotPWCompRight";
+"use client"
+import {ForgotPWCompLeft} from "@/components/ForgotPw/Components/ForgotPWCompLeft";
+import {ForgotPWCompRight} from "@/components/ForgotPw/Components/ForgotPWCompRight";
 
 export const ForgotPasswort = () => {
 

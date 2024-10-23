@@ -21,8 +21,8 @@ export const VolumeSlider = ({
 			</div>
 			<Slider
 				min={0}
-				defaultValue={[setVolumeOnLoad()]}
-				step={calculateStep()}
+				defaultValue={[setVolumeOnLoad() ?? 0]}
+				step={calculateStep() ?? 0.1}
 				max={1}
 				onValueChange={(value: number[]) => handleVolumeChange(value[0])}
 				className="w-full h-2 bg-gray-300 rounded-full cursor-pointer"

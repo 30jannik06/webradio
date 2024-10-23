@@ -19,11 +19,12 @@ export const Footer = () => {
 	const router = useRouter()
 
 	const handleLoginButtonClick = () => {
-		toast({
-			variant: "destructive",
-			title: "Login Fail",
-			description: "Dieser Login Button hat noch keine Funktion!"
-		});
+		router.push("/admin")
+		//toast({
+		//	variant: "destructive",
+		//	title: "Login Fail",
+		//	description: "Dieser Login Button hat noch keine Funktion!"
+		//});
 	};
 
 	return (
