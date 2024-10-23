@@ -4,6 +4,7 @@
  * @link https://github.com/30jannik06
  * @link https://discordapp.com/users/268084996235853824
  */
+"use client";
 import config from "@/utils/config.json"
 import React, {RefObject, useCallback, useEffect, useRef, useState} from "react";
 import {useToast} from "@/hooks/use-toast";
@@ -15,9 +16,9 @@ import {VolumeSlider} from "@/components/Player/Components/VolumeSlider";
 import {RadioSelector} from "@/components/Player/Components/RadioSelector";
 import {AudioPlayer} from "@/components/Player/Components/AudioPlayer";
 import {CurrentRadioDisplay} from "@/components/Player/Components/CurrentRadioDisplay";
-import {db} from "@/lib/db";
+import {IPlayerProps} from "@/interface/IPlayerProps";
 
-export default async function Player() {
+export const Player: React.FC<IPlayerProps> = ({streams}) => {
 	//#region Constants
 	const {toast} = useToast();
 	const router = useRouter();
@@ -35,38 +36,21 @@ export default async function Player() {
 	const audioRef: RefObject<HTMLAudioElement> = useRef<HTMLAudioElement>(null);
 	//#endregion
 
+
 	// Fetch radio stations asynchronously
 	useEffect(() => {
-		const fetchStreams = async () => {
-			try {
-				let streams: IRadioStation[] = [];
-				let streamList = await db.streams.findMany({});
-				if (!streamList) streamList = [];
-				for (const stream of streamList) {
-					streams.push({
-						id: stream.id,
-						name: stream.name,
-						streamURL: stream.streamURL,
-						group: stream.group,
-					});
-				}
-				setRadioStations(streams);
-				streams.map(r => console.log(r.name))
-			} catch (e) {
-				console.error("Fehler beim Laden der Radiostationen:", e);
-				toast({
-					variant: "destructive",
-					title: "Lade Fehler",
-					description: "Die Radiostationen konnten nicht geladen werden.",
-				});
-				//router.push("/problem");
-			} finally {
-				setLoading(false);
-			}
-		};
-
-		fetchStreams();
-	}, [toast, router]);
+		if (streams.length < 0) {
+			toast({
+				variant: "destructive",
+				title: "Lade Fehler",
+				description: "Die Radiostationen konnten nicht geladen werden.",
+			});
+			return
+		} else {
+			setRadioStations(streams);
+			setLoading(false);
+		}
+	}, [streams]);
 
 	// Setzt beim Laden des Webradio die zuletzt in der LocalStorage gesetzte Lautstärke.
 	const setVolumeOnLoad = useCallback(() => {

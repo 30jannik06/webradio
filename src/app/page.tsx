@@ -1,4 +1,3 @@
-"use client"
 /**
  * @author .jannik
  * @file page.tsx
@@ -10,16 +9,26 @@ import {Footer} from "@/components/Footer";
 import {Toaster} from "@/components/ui/toaster";
 import React, {Suspense} from "react";
 import LoadingScreen from "@/app/loading";
-import Player from "@/components/Player/Player";
+import {Player} from "@/components/Player/Player";
+import {db} from "@/lib/db";
+import {IRadioStation} from "@/interface/IRadioStation";
 
-export default function Home() {
+export default async function Home() {
+
+	const streamList = await db.streams.findMany({});
+	const streams: IRadioStation[] = streamList.map((stream) => ({
+		id: stream.id,
+		name: stream.name,
+		streamURL: stream.streamURL,
+		group: stream.group,
+	}));
 
 	return (
 		<main className={"w-screen h-screen bg-gray-100"}>
 			<Suspense fallback={<LoadingScreen/>}>
 				<Toaster/>
 				<Header/>
-				<Player/>
+				<Player streams={streams}/>
 				<Footer/>
 			</Suspense>
 		</main>

@@ -4,6 +4,7 @@
  * @link https://github.com/30jannik06
  * @link https://discordapp.com/users/268084996235853824
  */
+"use client";
 import React from 'react';
 import {useRouter} from "next/navigation";
 import Link from 'next/link';
