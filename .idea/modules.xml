@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/webradio.iml" filepath="$PROJECT_DIR$/.idea/webradio.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../webradioapi/.idea/webradioapi.iml" filepath="$PROJECT_DIR$/../webradioapi/.idea/webradioapi.iml" />
     </modules>
   </component>
 </project>
