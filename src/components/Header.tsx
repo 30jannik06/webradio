@@ -32,11 +32,13 @@ export const Header = () => {
 					<Label className={"tracking-tight text-white font-extrabold ml-9 text-4xl"}
 						   onClick={() => router.push("#")}>Webradio</Label>
 				</Link>
+				{/*
 				<div className="flex items-center space-x-4">
 					<Button
 						className={"border-white border-[1px] hover:transition-transform hover:bg-[#ffffff] hover:text-black"}
 						onClick={handleDiscordButtonClick}>Joine unserem Discord</Button>
 				</div>
+				*/}
 			</div>
 		</header>
 	);

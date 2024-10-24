@@ -16,7 +16,6 @@ export const AdminButtons = () => {
 	return (
 		<div
 			className="bg-gray-800 rounded-md flex justify-center items-center p-1 h-[6vh] w-auto shadow-lg">
-
 			<TooltipProvider>
 				<Tooltip>
 					<TooltipTrigger>

@@ -17,6 +17,10 @@ import {RadioSelector} from "@/components/Player/Components/RadioSelector";
 import {AudioPlayer} from "@/components/Player/Components/AudioPlayer";
 import {CurrentRadioDisplay} from "@/components/Player/Components/CurrentRadioDisplay";
 import {IPlayerProps} from "@/interface/IPlayerProps";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
+import {Button} from "@/components/ui/button";
+import {LogIn, LayoutDashboard} from "lucide-react";
+import {PlayerButtons} from "@/components/Player/Components/PlayerButtons";
 
 export const Player: React.FC<IPlayerProps> = ({streams}) => {
 	//#region Constants
@@ -148,9 +152,9 @@ export const Player: React.FC<IPlayerProps> = ({streams}) => {
 
 
 	return (
-		<div className={"w-full min-h-screen flex justify-center items-center p-4"}>
+		<div className={"w-full min-h-screen flex justify-center items-center flex-col p-4"}>
 			<div
-				className={"flex flex-col w-full max-w-lg bg-gray-100 items-center justify-center p-4 rounded-lg shadow-md"}>
+				className={"flex flex-col w-full max-w-lg bg-gray-100 items-center justify-center p-4 m-1 rounded-lg shadow-md"}>
 
 				{/*Audio-Player*/}
 				<AudioPlayer
@@ -181,6 +185,7 @@ export const Player: React.FC<IPlayerProps> = ({streams}) => {
 					isMuted={isMuted}
 					handleMuteToggle={handleMuteToggle}/>
 			</div>
+			<PlayerButtons/>
 		</div>
 	);
 };
