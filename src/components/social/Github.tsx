@@ -12,10 +12,11 @@ import Link from "next/link";
 export const Github = () => {
     return (
         <Link
-            href={"https://github.com/30jannik06/next-webradioplayer"}
+            href={"https://github.com/30jannik06/webradio"}
             target="_blank"
             rel="noopener noreferrer"
         >
+            {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
             <Image src={github} alt="Github" height={35} loading="lazy" />
         </Link>
     );

@@ -16,12 +16,8 @@ export const Youtube = () => {
             target="_blank"
             rel="noopener noreferrer"
         >
-            <Image
-                src={youtube}
-                alt="YouTube"
-                height={35}
-                loading="lazy"
-            />
+            {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
+            <Image src={youtube} alt="YouTube" height={35} loading="lazy"/>
         </Link>
     );
 };

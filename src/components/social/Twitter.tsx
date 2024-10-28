@@ -15,6 +15,7 @@ export const Twitter = () => {
 			href={"https://x.com/30jannik06"}
 			target={"_blank"}
 			rel={"noopener noreferrer"}>
+			{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
 			<Image src={twitter} alt={"twitter"} height={35} loading={"lazy"}/>
 		</Link>
 	)

@@ -4,7 +4,7 @@
  * @link https://github.com/30jannik06
  * @link https://discordapp.com/users/268084996235853824
  */
-import {IRadioStation} from "@/interface/IRadioStation";
+import {IRadioStation} from "@/interface/Player/IRadioStation";
 
 export interface ICurrentRadioDisplayProps {
 	currentRadio?: IRadioStation;

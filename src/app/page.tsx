@@ -11,7 +11,7 @@ import React, {Suspense} from "react";
 import LoadingScreen from "@/app/loading";
 import {Player} from "@/components/Player/Player";
 import {db} from "@/server/db";
-import {IRadioStation} from "@/interface/IRadioStation";
+import {IRadioStation} from "@/interface/Player/IRadioStation";
 
 export default async function Home() {
 

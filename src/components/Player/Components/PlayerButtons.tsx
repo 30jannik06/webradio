@@ -29,7 +29,7 @@ export const PlayerButtons = () => {
 					</TooltipContent>
 				</Tooltip>
 			</TooltipProvider>
-			<TooltipProvider>
+			{/*<TooltipProvider>
 				<Tooltip>
 					<TooltipTrigger>
 						<Button
@@ -42,7 +42,7 @@ export const PlayerButtons = () => {
 						Dashboard
 					</TooltipContent>
 				</Tooltip>
-			</TooltipProvider>
+			</TooltipProvider>*/}
 		</div>
 	)
 }

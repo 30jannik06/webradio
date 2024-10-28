@@ -5,7 +5,7 @@
  * @link https://discordapp.com/users/268084996235853824
  */
 import { Slider } from "@/components/ui/slider";
-import { IVolumeSliderProps } from "@/interface/IVolumeSliderProps";
+import { IVolumeSliderProps } from "@/interface/Player/IVolumeSliderProps";
 
 export const VolumeSlider = ({
 								 volume,
@@ -24,7 +24,7 @@ export const VolumeSlider = ({
 				defaultValue={[setVolumeOnLoad() ?? 0]}
 				step={calculateStep() ?? 0.1}
 				max={1}
-				onValueChange={(value: number[]) => handleVolumeChange(value[0])}
+				onValueChange={(value: number[]) => handleVolumeChange(value[0] ?? 0)}
 				className="w-full h-2 bg-gray-300 rounded-full cursor-pointer"
 			>
 				<div className="h-2 bg-green-500 rounded-full" />

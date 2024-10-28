@@ -16,12 +16,8 @@ export const Instagram = () => {
             target="_blank"
             rel="noopener noreferrer"
         >
-            <Image
-                src={instagram}
-                alt="Instagram"
-                height={35}
-                loading="lazy"
-            />
+            {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
+            <Image src={instagram} alt="Instagram" height={35} loading="lazy"/>
         </Link>
     );
 };

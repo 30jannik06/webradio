@@ -13,7 +13,7 @@ import {
 	SelectTrigger,
 	SelectValue
 } from "@/components/ui/select";
-import type {IRadioSelectorProps} from "@/interface/IRadioSelectorProps";
+import type {IRadioSelectorProps} from "@/interface/Player/IRadioSelectorProps";
 
 export const RadioSelector = ({radioStations, handleRadioChange, groupRadioStations, loading}: IRadioSelectorProps) => (
 	<Select onValueChange={handleRadioChange} disabled={loading}>

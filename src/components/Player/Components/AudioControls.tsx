@@ -7,7 +7,7 @@
 import { Button } from "@/components/ui/button";
 import { PauseIcon, PlayIcon, Volume2Icon, VolumeOffIcon } from "lucide-react";
 import React from "react";
-import { IAudioControlsProps } from "@/interface/IAudioControlsProps";
+import { IAudioControlsProps } from "@/interface/Player/IAudioControlsProps";
 
 //#region ICONS
 const PLAY_ICON: JSX.Element = <PlayIcon className={"mr-2"} />;

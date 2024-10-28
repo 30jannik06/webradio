@@ -11,7 +11,7 @@ import React, {Suspense} from "react";
 import LoadingScreen from "@/app/loading";
 import {Admin} from "@/components/Admin/Admin";
 import {db} from "@/server/db";
-import {IRadioStation} from "@/interface/IRadioStation";
+import {IRadioStation} from "@/interface/Player/IRadioStation";
 
 export default async function AdminPage() {
 

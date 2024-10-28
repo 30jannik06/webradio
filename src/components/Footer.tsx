@@ -38,7 +38,7 @@ export const Footer = () => {
 			</div>
 			<Label className="mt-4 select-none">
 				&copy; 2024 Dein Web Radio Player des Vertrauens. Alle Rechte vorbehalten.<span
-				className={"text-transparent hover:text-white hover:font-extrabold cursor-pointer"} onClick={handleLoginButtonClick}>login</span>
+				className={"text-transparent hover:text-white hover:font-extrabold text-[1vh] cursor-pointer"} onClick={handleLoginButtonClick}>🚀</span>
 			</Label>
 		</footer>
 	)

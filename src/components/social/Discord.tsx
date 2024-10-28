@@ -15,6 +15,7 @@ export const Discord = () => {
 			href={"https://discordapp.com/users/268084996235853824"}
 			target={"_blank"}
 			rel={"noopener noreferrer"}>
+			{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
 			<Image src={discord} alt={"discord"} height={35} loading={"lazy"}/>
 		</Link>
 	)

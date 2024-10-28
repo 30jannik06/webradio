@@ -6,7 +6,7 @@
  */
 import {Edit, Trash} from "lucide-react";
 import React from "react";
-import {IAdminProps} from "@/interface/IAdminProps";
+import {IAdminProps} from "@/interface/Admin/IAdminProps";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
 
 

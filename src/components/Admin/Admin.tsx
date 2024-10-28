@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {IAdminProps} from "@/interface/IAdminProps";
+import {IAdminProps} from "@/interface/Admin/IAdminProps";
 import {AdminStreamsTable} from "@/components/Admin/Components/AdminStreamsTable";
 import {AdminButtons} from "@/components/Admin/Components/AdminButtons";
 

@@ -8,7 +8,7 @@
 import config from "@/utils/config.json"
 import React, {RefObject, useCallback, useEffect, useRef, useState} from "react";
 import {useToast} from "@/hooks/use-toast";
-import {IRadioGroup, IRadioStation} from "@/interface/IRadioStation";
+import {IRadioGroup, IRadioStation} from "@/interface/Player/IRadioStation";
 import {useRouter} from "next/navigation";
 import {VolumeLevel} from "@/types/VolumeLevel";
 import {AudioControls} from "@/components/Player/Components/AudioControls";
@@ -16,10 +16,7 @@ import {VolumeSlider} from "@/components/Player/Components/VolumeSlider";
 import {RadioSelector} from "@/components/Player/Components/RadioSelector";
 import {AudioPlayer} from "@/components/Player/Components/AudioPlayer";
 import {CurrentRadioDisplay} from "@/components/Player/Components/CurrentRadioDisplay";
-import {IPlayerProps} from "@/interface/IPlayerProps";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
-import {Button} from "@/components/ui/button";
-import {LogIn, LayoutDashboard} from "lucide-react";
+import {IPlayerProps} from "@/interface/Player/IPlayerProps";
 import {PlayerButtons} from "@/components/Player/Components/PlayerButtons";
 
 export const Player: React.FC<IPlayerProps> = ({streams}) => {

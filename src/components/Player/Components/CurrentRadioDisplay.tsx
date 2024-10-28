@@ -4,7 +4,7 @@
  * @link https://github.com/30jannik06
  * @link https://discordapp.com/users/268084996235853824
  */
-import { ICurrentRadioDisplayProps } from "@/interface/ICurrentRadioDisplayProps";
+import { ICurrentRadioDisplayProps } from "@/interface/Player/ICurrentRadioDisplayProps";
 
 export const CurrentRadioDisplay = ({ currentRadio }: ICurrentRadioDisplayProps) => {
 	return (
